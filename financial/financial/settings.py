@@ -184,6 +184,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CELERY_BROKER_URL = f'amqp://guest:guest@localhost'
-CELERY_RESULT_BACKEND = f'rpc://'
+CELERY_BROKER_URL = 'amqp://guest:guest@localhost'
+CELERY_RESULT_BACKEND = 'rpc://'
 CELERY_BROKER_SCHEDULER = 'django_celery_beat/schedulers:DatabaseScheduler'

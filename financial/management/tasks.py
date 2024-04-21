@@ -5,7 +5,7 @@ from management.models import ExchangesRate, Currency
 
 @shared_task()
 def add_to_db():
-    data = requests.get('https://api.nbrb.by/exrates/rates?periodicity=0')
+    data = requests.get('https://api.nbrb.by/exrates/rates?periodicity=0', timeout=10)
     currency_mappings = {
         431: 'USD',
         451: 'EUR',
@@ -21,5 +21,3 @@ def add_to_db():
             ExchangesRate.objects.create(currency_from=currency, to_currency=currency_bun,
                                          exchange_rate=item['Cur_OfficialRate'])
     return 'The recording was successful'
-
-
