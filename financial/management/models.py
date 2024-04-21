@@ -14,7 +14,6 @@ class Currency(models.Model):
 
 
 class ExchangesRate(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     currency_from = models.ForeignKey(Currency, on_delete=models.CASCADE, related_name='currency_from')
     to_currency = models.ForeignKey(Currency, on_delete=models.CASCADE, related_name='to_currency')
     exchange_rate = models.DecimalField(max_digits=5, decimal_places=3)
